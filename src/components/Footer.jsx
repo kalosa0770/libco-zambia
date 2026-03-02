@@ -8,8 +8,8 @@ export default function Footer() {
         <div className="container mx-auto md:px-36 px-6">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-center gap-8 mb-12">
             <div>
-              <h3 className="font-rubik text-xl font-black text-slate-900">
-                LIBCO <span className="text-blue-600">Zambia Limited</span>
+              <h3 className="font-rubik text-xl font-black text-libco-red mb-2">
+                LIBCO <span className="text-slate-900">ZAMBIA LTD</span>
               </h3>
               <p className="font-quicksand text-slate-500 text-sm mt-1">Unified Business Solutions Architecture</p>
             </div>

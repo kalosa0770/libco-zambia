@@ -4,6 +4,7 @@ import AboutSection from "./components/AboutSection";
 import ServicesSection from "./components/ServicesSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
+import ImageShowcase from "./components/ImageShowcase";
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
         {/* 4. Contact: Soft Gray Separation */}
         {/* This subtle gray makes the white form inputs look much cleaner and easier to find */}
         <section className="bg-slate-50 border-y border-slate-100">
-          <ContactSection />
+          <ImageShowcase />
         </section>
 
         {/* 5. Footer: Pure White */}

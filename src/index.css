@@ -5,4 +5,6 @@
 @theme {
   --font-quicksand: 'Quicksand', sans-serif;
   --font-rubik: 'Rubik', sans-serif;
+
+  --color-libco-red: #E53935;
 }

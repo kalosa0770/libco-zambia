@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import asset1 from "../assets/asset1.png";
 
 export default function HeroSection() {
   return (
@@ -17,23 +18,23 @@ export default function HeroSection() {
             className="text-left order-2 lg:order-1"
           >
             {/* Tagline using your Quicksand variable */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-blue-50 border-l-4 border-blue-600 mb-6">
-              <span className="font-quicksand text-[10px] md:text-sm font-bold text-blue-800 uppercase tracking-[0.15em]">
-                Republic of Zambia • Established Global Partner
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-slate-50 border-l-4 border-libco-red mb-6">
+              <span className="font-quicksand text-[10px] md:text-sm font-bold text-slate-900 uppercase tracking-[0.15em]">
+                Libco Zambia Ltd • Established Global Partner
               </span>
             </div>
 
             {/* Title using your Rubik variable */}
-            <h1 className="font-rubik text-4xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 leading-[1.1] tracking-tight">
+            <h1 className="font-rubik text-3xl md:text-5xl font-extrabold text-libco-red leading-[1.1] tracking-tight">
               First-Class <br />
-              <span className="text-blue-600">Unified Services</span>
+              Unified Services
             </h1>
 
             {/* Body Text using your Quicksand variable */}
-            <p className="font-quicksand mt-6 text-lg md:text-xl text-slate-600 leading-relaxed max-w-xl font-medium">
+            <p className="font-quicksand mt-6 text-sm md:text-lg text-slate-900 leading-relaxed max-w-xl font-medium">
               LIBCO (LB) is a service-oriented leader providing seamless business solutions 
               to reputable organizations. Bridging quality and innovation across 
-              <span className="text-blue-900 font-bold"> Africa, Asia, Europe, and the US.</span>
+              <span className="text-libco-red font-bold"> Africa, Asia, Europe, and the US.</span>
             </p>
 
             {/* Buttons using your Quicksand variable */}
@@ -41,7 +42,7 @@ export default function HeroSection() {
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-blue-600 text-white font-bold rounded-xl shadow-lg shadow-blue-200 transition-all text-center cursor-pointer"
+                className="px-8 py-4 bg-slate-900 text-white font-bold rounded-xl shadow-lg shadow-libco-red/20 transition-all text-center cursor-pointer"
               >
                 Explore Solutions
               </motion.button>
@@ -62,14 +63,14 @@ export default function HeroSection() {
             className="relative order-1 lg:order-2 w-full max-w-[550px] lg:max-w-none mx-auto lg:mx-0"
           >
             {/* The "Infotek" Mask (Organic Shape) */}
-            <div className="relative z-20 overflow-hidden shadow-2xl aspect-[4/5] sm:aspect-square lg:aspect-auto lg:h-[650px]" 
+            <div className="relative z-20 overflow-hidden shadow-2xl aspect-[4/5] sm:aspect-square lg:aspect-auto lg:h-[650px] border-[12px] border-slate-50" 
                  style={{ 
                    borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%",
                  }}>
               <img 
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" 
-                alt="LIBCO Global Team" 
-                className="w-full h-full object-cover"
+                    src={asset1}
+                    alt="LIBCO Global Team" 
+                className="w-full h-full object-cover p-8"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/40 to-transparent" />
             </div>
