@@ -9,11 +9,10 @@ import {
   ArrowRight
 } from "lucide-react";
 
-// Image Assets
 import imgMainCoupling from "../assets/asset3.png"; 
 import imgGateValve from "../assets/consultation.png";
 import imgButterflyValve from "../assets/training.png";
-import imgCheckValve from "../assets/shipping.png";
+import imgCheckValve from "../assets/asset2.png";
 
 export default function ServicesSection() {
   const [activeTab, setActiveTab] = useState(1);
@@ -24,7 +23,7 @@ export default function ServicesSection() {
       title: "Management Consultancy",
       icon: <BarChart4 className="w-5 h-5" />,
       tagline: "Performance & Strategy",
-      image: imgGateValve, // Using another asset for consultancy background
+      image: imgGateValve,
       items: [
         "Global Supply Chain Management",
         "Business Performance Management",
@@ -54,7 +53,7 @@ export default function ServicesSection() {
       title: "Logistics & Shipping",
       icon: <Truck className="w-5 h-5" />,
       tagline: "Supply Chain Movement",
-      image: imgCheckValve, // Using another asset for logistics background
+      image: imgCheckValve,
       items: [
         "Customs Clearing & Shipping",
         "Multi-modal: Air, Road, Sea",
@@ -68,7 +67,7 @@ export default function ServicesSection() {
       title: "Training",
       icon: <GraduationCap className="w-5 h-5" />,
       tagline: "Capacity Building",
-      image: imgButterflyValve, // Using another asset for training background
+      image: imgButterflyValve,
       items: [
         "e-Procurement (E-GP) Systems",
         "Tendering & Bid Preparation",
@@ -80,103 +79,116 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section id="services" className="py-24 bg-white overflow-hidden">
+    <section id="services" className="relative py-20 md:py-28 overflow-hidden">
+      
       <div className="container mx-auto px-6">
         
-        {/* Header Section */}
-        <div className="mb-12 lg:mb-16">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="h-[1px] w-12 bg-slate-900"></div>
-            <span className="font-quicksand font-bold text-slate-900 uppercase tracking-[0.2em] text-xs">
-              Our Expertise
+        {/* HEADER */}
+        <div className="max-w-3xl mb-12 md:mb-20">
+          <p className="text-xs tracking-[0.25em] uppercase font-bold text-slate-500 mb-4">
+            Our Expertise
+          </p>
+          <h2 className="font-rubik text-4xl md:text-7xl font-extrabold text-slate-900 leading-[1.05] tracking-tight">
+            Integrated <span className="text-transparent bg-clip-text bg-gradient-to-r from-libco-red to-red-800">
+            Business Solutions
             </span>
-          </div>
-          <h2 className="font-rubik text-3xl md:text-5xl font-black text-libco-red leading-tight">
-            Integrated Business <br />
-            <span className="underline decoration-libco-red/20 underline-offset-8">Solutions Structure</span>
           </h2>
         </div>
 
-        {/* Navigation Tabs */}
-        <div className="flex overflow-x-auto lg:grid lg:grid-cols-4 pb-6 lg:pb-0 mb-8 gap-4 no-scrollbar">
+        {/* TABS */}
+        <div className="flex md:grid md:grid-cols-4 gap-4 md:gap-5 mb-12 md:mb-16 overflow-x-auto no-scrollbar">
           {services.map((service, index) => (
             <button
               key={service.id}
               onClick={() => setActiveTab(index)}
-              className={`flex-none lg:w-full flex items-center justify-center gap-3 px-6 py-5 rounded-2xl font-quicksand font-bold text-sm transition-all border cursor-pointer ${
-                activeTab === index 
-                ? "bg-slate-900 text-white border-slate-900 shadow-xl -translate-y-1" 
-                : "bg-slate-50 text-slate-900 border-slate-100 hover:bg-white hover:border-blue-200"
+              className={`flex-shrink-0 md:w-full min-w-[220px] md:min-w-0 group px-5 md:px-6 py-5 rounded-2xl text-left border transition-all ${
+                activeTab === index
+                  ? "bg-libco-red text-white border-libco-red shadow-lg"
+                  : "bg-white border-slate-200 hover:border-libco-red/40"
               }`}
             >
-              {service.icon}
-              <span className="whitespace-nowrap">{service.title}</span>
+              <div className="flex items-center gap-3 mb-2 md:mb-3">
+                <div className={`p-2 rounded-lg ${
+                  activeTab === index
+                    ? "bg-white/20"
+                    : "group-hover:bg-libco-red/10"
+                }`}>
+                  {service.icon}
+                </div>
+                <h3 className="font-bold text-xs md:text-sm uppercase tracking-wide">
+                  {service.title}
+                </h3>
+              </div>
+              <p className={`text-xs ${
+                activeTab === index ? "text-white/80" : "text-slate-500"
+              }`}>
+                {service.tagline}
+              </p>
             </button>
           ))}
         </div>
 
-        {/* Full Width Specialization Card */}
-        <div className="relative min-h-[500px]">
+        {/* MAIN CONTENT PANEL */}
+        <div className="relative">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4 }}
-              className="w-full bg-gray-50 ounded-[3rem] p-8 md:p-20 relative overflow-hidden flex flex-col justify-center"
+              exit={{ opacity: 0, y: -40 }}
+              transition={{ duration: 0.5 }}
+              className="relative bg-white rounded-3xl shadow-[0_40px_100px_-30px_rgba(0,0,0,0.2)] overflow-hidden"
             >
-              {/* Background Product Image */}
-              {services[activeTab].image && (
-                <div className="absolute right-[-5%] top-1/2 -translate-y-1/2 w-1/2 h-full pointer-events-none">
-                  <motion.img 
-                    initial={{ scale: 1.2, rotate: 5 }}
-                    animate={{ scale: 1, rotate: 0 }}
-                    transition={{ duration: 1.5, ease: "easeOut" }}
-                    src={services[activeTab].image} 
-                    className="w-full h-full object-contain"
-                    alt="Industrial backdrop"
-                  />
-                </div>
-              )}
-
-              {/* Decorative Gradient for Text Readability */}
               
+              <div className="grid md:grid-cols-2">
+                
+                {/* IMAGE (top on mobile) */}
+                <div className="relative bg-white flex items-center justify-center p-10 md:p-0 min-h-[250px] md:min-h-[550px]">
+                  <motion.img
+                    key={services[activeTab].image}
+                    initial={{ scale: 1.1 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 1 }}
+                    src={services[activeTab].image}
+                    className="w-[70%] md:w-[75%] object-contain"
+                    alt="Service Illustration"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-white via-transparent to-libco-red/10 pointer-events-none" />
+                </div>
 
-              {/* Content Grid */}
-              <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-                <div>
+                {/* CONTENT */}
+                <div className="p-8 md:p-16 flex flex-col justify-center">
                   
-                  <h3 className="font-rubik text-lg md:text-xl font-bold text-gray-900 mb-8">
+                  <h3 className="font-rubik text-2xl md:text-3xl font-bold text-slate-900 mb-8 md:mb-10">
                     {services[activeTab].title}
                   </h3>
-                  
-                  <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-8">
+
+                  {/* Responsive Bullet Layout */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-10">
                     {services[activeTab].items.map((item, i) => (
-                      <motion.div 
+                      <motion.div
                         key={i}
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: i * 0.05 }}
-                        className="flex items-center gap-4 group"
+                        className="flex items-start gap-3"
                       >
-                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-900/20 flex items-center justify-center border border-blue-500/30">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-blue-400" />
-                        </div>
-                        <span className="font-quicksand font-bold text-slate-900 text-sm md:text-base leading-tight">
+                        <CheckCircle2 className="w-5 h-5 text-libco-red mt-1" />
+                        <span className="text-slate-700 text-sm md:text-base font-medium">
                           {item}
                         </span>
                       </motion.div>
                     ))}
                   </div>
 
-                  <div className="mt-12">
-                    <button className="flex items-center gap-4 bg-libco-red text-white px-8 py-4 rounded-full font-quicksand font-black text-sm uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all group">
+                  <div className="mt-10 md:mt-14">
+                    <button className="inline-flex items-center gap-3 bg-slate-900 text-white px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold tracking-wide hover:bg-libco-red transition-all group">
                       Get Specialist Advice
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                     </button>
                   </div>
                 </div>
+
               </div>
             </motion.div>
           </AnimatePresence>

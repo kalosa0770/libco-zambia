@@ -18,7 +18,7 @@ function App() {
         
         {/* 2. About: Soft Gray Separation */}
         {/* The slate-50 background gives the Mission/Vision cards an 'anchored' feel */}
-        <section className="bg-slate-50 border-y border-slate-100">
+        <section className=" bg-slate-50 border-y border-slate-100">
           <AboutSection />
         </section>
 
@@ -30,7 +30,7 @@ function App() {
 
         {/* 4. Contact: Soft Gray Separation */}
         {/* This subtle gray makes the white form inputs look much cleaner and easier to find */}
-        <section className="bg-slate-50 border-y border-slate-100">
+        <section className=" bg-slate-50 border-y border-slate-100">
           <ImageShowcase />
         </section>
 

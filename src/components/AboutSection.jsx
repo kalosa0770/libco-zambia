@@ -4,7 +4,7 @@ import asset3 from "../assets/asset3.png";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-24 bg-white relative overflow-hidden">
+    <section id="about" className="py-24 relative overflow-hidden">
       {/* Subtle Background Decorative Element */}
       <div className="absolute left-0 bottom-0 w-1/4 opacity-5 bg-blue-600 h-64 blur-[120px] rounded-full pointer-events-none" />
 
@@ -23,7 +23,7 @@ export default function AboutSection() {
               <img 
                 src={asset3}
                 alt="LIBCO Team Collaboration" 
-                className="w-full h-[550px] object-cover"
+                className="w-full object-cover"
               />
               {/* Blue Overlay Gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent" />
@@ -33,9 +33,9 @@ export default function AboutSection() {
             <motion.div 
               animate={{ y: [0, -15, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-6 -right-6 md:right-10 z-30 bg-slate-900 text-white p-8 rounded-3xl shadow-2xl text-center"
+              className="absolute -bottom-8 -right-4 md:right-10 z-30 bg-slate-900 text-white p-4 rounded-3xl shadow-2xl text-center"
             >
-              <span className="font-rubik block text-4xl font-black">20+</span>
+              <span className="font-rubik block text-xs font-black">20+</span>
               <span className="font-quicksand block text-xs uppercase font-bold tracking-widest mt-1">Years of</span>
               <span className="font-quicksand block text-xs uppercase font-bold tracking-widest leading-none">Excellence</span>
             </motion.div>
@@ -59,13 +59,14 @@ export default function AboutSection() {
               </div>
 
               {/* Main Heading */}
-              <h2 className="font-rubik text-3xl md:text-5xl font-extrabold text-libco-red leading-[1.1] tracking-tight">
-                Unified Solutions for a <br />
-                Competitive Global Market
+              <h2 className="font-rubik text-4xl md:text-7xl font-extrabold text-slate-900 leading-[1.05] tracking-tight">
+              Global <span className="text-transparent bg-clip-text bg-gradient-to-r from-libco-red to-red-800">
+              Competitive  Market
+                </span>
               </h2>
 
               {/* About Text */}
-              <p className="font-quicksand mt-6 text-sm md:text-lg text-slate-900 leading-relaxed max-w-xl font-medium">
+              <p className="font-quicksand mt-6 text-lg md:text-xl text-slate-600 leading-relaxed max-w-xl font-medium">
                 LIBCO (LB) is a service-oriented company incorporated in the Republic of Zambia. 
                 We offer seamless business solutions to reputable organizations, providing 
                 first-class unified services across Zambia, Africa, and internationally.
