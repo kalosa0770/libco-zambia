@@ -5,11 +5,25 @@ import ServicesSection from "./components/ServicesSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 import ImageShowcase from "./components/ImageShowcase";
+import { ToastContainer} from 'react-toastify';
 
 function App() {
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Navbar />
+      
       <main className="selection:bg-blue-100 selection:text-blue-900 min-h-screen bg-white pt-26 pb-10">
         
         {/* 1. Hero: Pure White */}

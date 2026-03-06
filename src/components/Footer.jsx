@@ -42,13 +42,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#process" className="hover:text-libco-red transition-colors">
-                  Process
-                </a>
-              </li>
-              <li>
                 <a href="#contact" className="hover:text-libco-red transition-colors">
-                  Contact
+                  Get in Touch
                 </a>
               </li>
             </ul>
@@ -74,9 +69,9 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-libco-red" />
-                <span>
+                <a href="mailto:info@libcozambia.com" className="hover:text-libco-red transition-colors">
                   info@libcozambia.com
-                </span>
+                </a>
               </li>
             </ul>
           </div>
