@@ -145,7 +145,7 @@ export default function AboutSection() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 40, opacity: 0 }}
               transition={{ type: "spring", stiffness: 280, damping: 20 }}
-              className="relative z-10 w-[90%] max-w-xl bg-white rounded-2xl p-6 md:p-8 shadow-2xl"
+              className="relative z-10 w-[90%] max-w-xl bg-white rounded-2xl p-6 md:p-8 shadow-2xl overflow-y-auto max-h-[80vh]"
             >
               <div className="flex justify-between items-start mb-4">
                 <div>
@@ -164,7 +164,7 @@ export default function AboutSection() {
                 </button>
               </div>
 
-              <div className="space-y-3 text-sm text-slate-700">
+              <div className="space-y-3 text-sm text-slate-700 leading-relaxed">
                 <p>
                   LIBCO Zambia is a full-spectrum business solutions provider, delivering procurement,
                   logistics, consulting, and training services across Africa, Asia, Europe and North America.
