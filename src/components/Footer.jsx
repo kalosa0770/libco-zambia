@@ -41,11 +41,6 @@ export default function Footer() {
                   Services
                 </a>
               </li>
-              <li>
-                <a href="#contact" className="hover:text-libco-red transition-colors">
-                  Get in Touch
-                </a>
-              </li>
             </ul>
           </div>
 

@@ -1,7 +1,9 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import asset1 from "../assets/asset1.png";
 
 export default function HeroSection() {
+  const [isPartnershipOpen, setIsPartnershipOpen] = useState(false);
   // Animation Variants for staggering children
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -17,7 +19,8 @@ export default function HeroSection() {
   };
 
   return (
-    <header className="relative overflow-hidden min-h-[100svh] flex items-center bg-white">
+    <>
+      <header className="relative overflow-hidden min-h-[100svh] flex items-center bg-white">
       {/* 1. Refined Background Elements */}
       <div className="absolute inset-0 z-0">
         {/* Subtle Grid Pattern */}
@@ -65,12 +68,14 @@ export default function HeroSection() {
               <motion.button 
                 whileHover={{ y: -4, shadow: "0 20px 25px -5px rgb(0 0 0 / 0.1)" }}
                 whileTap={{ scale: 0.98 }}
+                onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
                 className="px-10 py-5 bg-slate-900 text-white font-bold rounded-2xl transition-all shadow-xl shadow-slate-900/20"
               >
-                Explore Solutions
+                Explore Services
               </motion.button>
               <motion.button 
                 whileHover={{ backgroundColor: "rgba(241, 245, 249, 1)", y: -4 }}
+                onClick={() => setIsPartnershipOpen(true)}
                 className="px-10 py-5 border-2 border-slate-200 text-slate-800 font-bold rounded-2xl transition-all"
               >
                 View Partnerships
@@ -104,5 +109,69 @@ export default function HeroSection() {
         </div>
       </div>
     </header>
+
+      <AnimatePresence>
+        {isPartnershipOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsPartnershipOpen(false)}
+              className="absolute inset-0 bg-slate-900/60 backdrop-blur-md"
+            />
+            <motion.div
+              initial={{ y: 40, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 40, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 280, damping: 20 }}
+              className="relative z-10 w-[90%] max-w-xl bg-white rounded-2xl p-6 md:p-8 shadow-2xl"
+            >
+              <div className="flex justify-between items-start mb-4">
+                <div>
+                  <h3 className="font-rubik text-2xl md:text-3xl font-black text-slate-900">
+                    Partnership Opportunities
+                  </h3>
+                  <p className="mt-1 text-sm text-slate-500">
+                    Learn how your organization can collaborate with LIBCO for mutual growth.
+                  </p>
+                </div>
+                <button
+                  onClick={() => setIsPartnershipOpen(false)}
+                  className="p-2 text-slate-500 hover:bg-slate-100 rounded-full transition"
+                >
+                  ✕
+                </button>
+              </div>
+
+              <div className="space-y-3 text-sm text-slate-700">
+                <p>
+                  Partner with us in procurement, logistics, consultancy, and training to unlock tailored global solutions,
+                  shared expertise, and optimized supply operations.
+                </p>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>Joint go-to-market programs</li>
+                  <li>Co-developed industry-specific solutions</li>
+                  <li>Channel and referral arrangements</li>
+                  <li>Dedicated partnership support team</li>
+                </ul>
+                <p>
+                  For detailed partnership plans, contact us at <strong>info@libcozambia.com</strong> or use the <em>Get in Touch</em> button in the navigation.
+                </p>
+              </div>
+
+              <div className="mt-6 flex justify-end gap-3">
+                <button
+                  onClick={() => setIsPartnershipOpen(false)}
+                  className="px-4 py-2 rounded-xl border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 transition"
+                >
+                  Close
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
